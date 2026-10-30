@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="description" content="Propuesta estratégica para Noviembre en Movimiento de Fitform." />
+  <title>Fitform · Noviembre en Movimiento</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #050505;
+      --panel: #0b0b0b;
+      --white: #fff;
+      --muted: #a6a6a6;
+      --dim: #686868;
+      --line: rgba(255,255,255,.14);
+      --soft-line: rgba(255,255,255,.08);
+      --teal: #9ce1d4;
+      --teal-deep: #295c5f;
+      --amber: #f1d08a;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--black); color: var(--white); }
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      font-family: Montserrat, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 86% 0%, rgba(255,255,255,.13), transparent 28rem),
+        radial-gradient(circle at 0% 45%, rgba(41,92,95,.22), transparent 32rem),
+        var(--black);
+    }
+    main { max-width: 1320px; margin: auto; padding: 28px 5vw 64px; }
+    h1, h2, h3, p { margin: 0; }
+    a { color: inherit; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; gap: 20px; color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--white); }
+    .brand img { width: 28px; height: 28px; object-fit: contain; }
+    .hero { min-height: 575px; display: grid; align-content: center; position: relative; border-bottom: 1px solid var(--line); overflow: hidden; }
+    .hero::after { content: "NOV"; position: absolute; right: -2vw; bottom: -4vw; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.1); font-size: clamp(190px, 32vw, 470px); font-weight: 900; letter-spacing: -.14em; line-height: .72; pointer-events: none; }
+    .eyebrow { position: relative; z-index: 1; margin-bottom: 20px; color: var(--teal); font-size: 11px; font-weight: 900; letter-spacing: .2em; text-transform: uppercase; }
+    h1 { position: relative; z-index: 1; max-width: 900px; font-size: clamp(62px, 12vw, 166px); line-height: .78; letter-spacing: -.105em; text-transform: uppercase; }
+    h1 .outline { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.85); text-shadow: 0 0 24px rgba(255,255,255,.18); }
+    .hero-copy { position: relative; z-index: 1; max-width: 650px; margin-top: 34px; color: var(--muted); font-size: clamp(14px, 1.55vw, 18px); font-weight: 600; line-height: 1.55; }
+    .hero-copy strong { color: var(--white); }
+    .hero-meta { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .pill { display: inline-flex; align-items: center; min-height: 32px; padding: 0 11px; border: 1px solid var(--line); color: var(--muted); font-size: 10px; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+    .pill.active { border-color: rgba(156,225,212,.5); color: var(--teal); }
+    section { padding: 72px 0; border-bottom: 1px solid var(--line); }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 25px; margin-bottom: 32px; }
+    h2 { font-size: clamp(31px, 5vw, 66px); line-height: .86; letter-spacing: -.08em; text-transform: uppercase; }
+    h3 { color: var(--muted); font-size: 11px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+    .caption { max-width: 450px; color: var(--muted); font-size: 13px; font-weight: 600; line-height: 1.55; text-align: right; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+    .card { min-height: 190px; padding: 22px; border: 1px solid var(--soft-line); background: linear-gradient(135deg, rgba(255,255,255,.055), rgba(255,255,255,.015)); }
+    .card .number { display: block; color: var(--teal); font-size: clamp(31px, 4vw, 55px); font-weight: 900; letter-spacing: -.1em; line-height: .9; }
+    .card strong { display: block; margin-top: 20px; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+    .card p { margin-top: 10px; color: var(--muted); font-size: 13px; font-weight: 600; line-height: 1.55; }
+    .offer { display: grid; grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); gap: 45px; align-items: center; }
+    .offer-title { font-size: clamp(43px, 7vw, 94px); font-weight: 900; letter-spacing: -.1em; line-height: .8; text-transform: uppercase; }
+    .offer-title span { display: block; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.78); }
+    .offer-lead { margin-top: 25px; color: var(--muted); font-size: 15px; font-weight: 600; line-height: 1.6; }
+    .offer-box { border-top: 2px solid var(--white); }
+    .offer-row { display: grid; grid-template-columns: 58px 1fr; gap: 18px; align-items: start; padding: 22px 0; border-bottom: 1px solid var(--soft-line); }
+    .offer-row b { color: var(--teal); font-size: 13px; letter-spacing: .12em; }
+    .offer-row strong { display: block; font-size: 19px; letter-spacing: -.04em; text-transform: uppercase; }
+    .offer-row span { display: block; margin-top: 7px; color: var(--muted); font-size: 13px; font-weight: 600; line-height: 1.5; }
+    .timeline { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); border-top: 1px solid var(--line); }
+    .phase { min-height: 180px; padding: 22px 20px 20px 0; border-right: 1px solid var(--line); }
+    .phase + .phase { padding-left: 20px; }
+    .phase:last-child { border-right: 0; }
+    .phase .date { color: var(--teal); font-size: 11px; font-weight: 900; letter-spacing: .12em; }
+    .phase strong { display: block; margin-top: 30px; font-size: 21px; letter-spacing: -.05em; text-transform: uppercase; }
+    .phase p { margin-top: 10px; color: var(--muted); font-size: 12px; font-weight: 600; line-height: 1.55; }
+    .rationale { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); gap: 45px; }
+    .rationale-callout { padding: 24px; border: 1px solid rgba(156,225,212,.35); background: rgba(156,225,212,.055); }
+    .rationale-callout strong { display: block; color: var(--teal); font-size: 25px; letter-spacing: -.06em; line-height: 1; }
+    .rationale-callout p { margin-top: 15px; color: var(--muted); font-size: 13px; font-weight: 600; line-height: 1.6; }
+    .rationale-list { display: grid; gap: 0; border-top: 1px solid var(--line); }
+    .rationale-item { display: grid; grid-template-columns: 35px 1fr; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--soft-line); }
+    .rationale-item b { color: var(--muted); font-size: 11px; }
+    .rationale-item strong { display: block; font-size: 14px; text-transform: uppercase; }
+    .rationale-item p { margin-top: 6px; color: var(--muted); font-size: 13px; font-weight: 600; line-height: 1.55; }
+    .evidence { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 15px; }
+    .metric { min-height: 145px; padding: 20px 0; border-top: 2px solid var(--white); }
+    .metric b { display: block; font-size: clamp(35px, 5vw, 66px); font-weight: 900; letter-spacing: -.09em; line-height: .86; }
+    .metric span { display: block; margin-top: 15px; color: var(--muted); font-size: 10px; font-weight: 900; letter-spacing: .1em; line-height: 1.4; text-transform: uppercase; }
+    .decision { margin-top: 25px; padding: 22px 0 0; border-top: 2px solid var(--white); }
+    .decision strong { display: block; font-size: clamp(22px, 3vw, 38px); letter-spacing: -.06em; }
+    .decision p { max-width: 850px; margin-top: 10px; color: var(--muted); font-size: 13px; font-weight: 600; line-height: 1.6; }
+    .rules { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0 34px; border-top: 1px solid var(--line); }
+    .rule { padding: 18px 0; border-bottom: 1px solid var(--soft-line); color: var(--muted); font-size: 13px; font-weight: 600; line-height: 1.55; }
+    .rule strong { color: var(--white); }
+    .note { margin-top: 22px; color: var(--dim); font-size: 11px; font-weight: 700; line-height: 1.55; }
+    footer { padding-top: 24px; color: var(--dim); font-size: 10px; font-weight: 700; letter-spacing: .08em; line-height: 1.55; text-transform: uppercase; }
+    @media (max-width: 900px) { .evidence { grid-template-columns: repeat(2, minmax(0,1fr)); } .offer, .rationale { grid-template-columns: 1fr; } }
+    @media (max-width: 700px) { main { padding: 22px 20px 48px; } .topbar { font-size: 9px; } .hero { min-height: 470px; } .hero::after { font-size: 165px; bottom: 0; } .section-head { display: block; } .caption { margin-top: 16px; text-align: left; } .grid-3, .timeline, .rules { grid-template-columns: 1fr; } .phase, .phase + .phase { padding-left: 0; border-right: 0; border-bottom: 1px solid var(--line); } .phase:last-child { border-bottom: 0; } .evidence { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="topbar">
+      <span class="brand"><img src="logo-fitform-teal.png" alt="Fitform" /> FITFORM</span>
+      <span>Propuesta / Noviembre 2026</span>
+    </div>
+
+    <header class="hero">
+      <div class="eyebrow">Activación comercial · cinco días</div>
+      <h1>Noviembre<br /><span class="outline">en movimiento</span></h1>
+      <p class="hero-copy">Una campaña de conversión para que quienes hoy compran clases unitarias den el siguiente paso: adquirir un paquete de cinco clases con un beneficio exclusivo durante el <strong>13 al 17 de noviembre</strong>.</p>
+      <div class="hero-meta">
+        <span class="pill active">13–17 NOV · Activación</span>
+        <span class="pill">Clase unitaria → paquete</span>
+        <span class="pill">Propuesta interna</span>
+      </div>
+    </header>
+
+    <section>
+      <div class="section-head">
+        <h2>La idea</h2>
+        <p class="caption">Activación comercial puntual del 13 al 17 de noviembre.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card"><span class="number">01</span><strong>Un objetivo</strong><p>Convertir compradores de clases unitarias en compradores de paquete.</p></article>
+        <article class="card"><span class="number">02</span><strong>Una ventana</strong><p>Concentrar la comunicación y la operación del 13 al 17 de noviembre.</p></article>
+        <article class="card"><span class="number">03</span><strong>Un producto foco</strong><p>Impulsar el paquete de cinco clases como el siguiente paso natural.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="offer">
+        <div>
+          <div class="eyebrow">Semana de beneficios exclusivos</div>
+          <div class="offer-title">5 clases<span>+ 1 + regalo</span></div>
+          <p class="offer-lead">Una oferta fácil de entender, operativamente sencilla y compatible con el posicionamiento premium de Fitform. El incentivo está en el valor agregado, no en una rebaja agresiva.</p>
+        </div>
+        <div class="offer-box">
+          <div class="offer-row"><b>01</b><div><strong>Compra el paquete de 5</strong><span>Disponible únicamente durante la activación del 13 al 17 de noviembre.</span></div></div>
+          <div class="offer-row"><b>02</b><div><strong>Recibe una clase adicional</strong><span>El beneficio debe tener una vigencia definida para incentivar la siguiente reserva.</span></div></div>
+          <div class="offer-row"><b>03</b><div><strong>Recibe calcetas Fitform</strong><span>Sujeto a existencias y con una presentación cuidada para que funcione como un regalo de marca.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>El movimiento buscado</h2>
+        <p class="caption">La campaña tiene una sola transición: pasar de una compra ocasional a una compra que permite planear más clases.</p>
+      </div>
+      <div class="timeline">
+        <article class="phase"><span class="date">HOY</span><strong>Clase unitaria</strong><p>La persona ya conoce la experiencia Fitform, pero decide clase por clase.</p></article>
+        <article class="phase"><span class="date">13–17 NOV</span><strong>Paquete de 5</strong><p>El beneficio exclusivo reduce la fricción para probar una compra de mayor compromiso.</p></article>
+        <article class="phase"><span class="date">DESPUÉS</span><strong>Más continuidad</strong><p>La clase adicional debe llevar a una siguiente reserva y abrir la puerta a la recompra.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Por qué no usar la marca de Buen Fin</h2>
+        <p class="caption">La marca de Fitform debe seguir siendo la protagonista. La coyuntura se aprovecha como timing comercial, no como identidad de campaña.</p>
+      </div>
+      <div class="rationale">
+        <div class="rationale-callout"><strong>La señal es Fitform.</strong><p>El mensaje debe sentirse como un beneficio privado para una comunidad que ya conoce y valora la experiencia, no como una promoción masiva de precio.</p></div>
+        <div class="rationale-list">
+          <div class="rationale-item"><b>01</b><div><strong>Protege el posicionamiento premium</strong><p>Evita asociar la marca con descuentos generalizados o con una lógica de remate.</p></div></div>
+          <div class="rationale-item"><b>02</b><div><strong>Reduce complejidad operativa</strong><p>No hace falta montar una segunda identidad, registro, directorio ni comunicación pública.</p></div></div>
+          <div class="rationale-item"><b>03</b><div><strong>Habla a la audiencia correcta</strong><p>La campaña se dirige a usuarios activos y conocidos, menos sensibles al precio y más receptivos a beneficios de experiencia.</p></div></div>
+          <div class="rationale-item"><b>04</b><div><strong>Permite controlar la oferta</strong><p>Fitform decide el segmento, el cupo, la vigencia y el nivel de incentivo sin convertirlo en una promesa abierta para todo el mercado.</p></div></div>
+        </div>
+      </div>
+      <p class="note">Nota: si Fitform no se registra en el portal oficial, esta propuesta debe comunicarse como una campaña propia y no utilizar el nombre ni el logotipo oficial de El Buen Fin.</p>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Lo que sí sabemos</h2>
+        <p class="caption">La evidencia disponible permite confirmar el universo de productos, pero todavía no el ranking de ventas por paquete.</p>
+      </div>
+      <div class="evidence">
+        <div class="metric"><b>255</b><span>Clientes con compra<br />de clases</span></div>
+        <div class="metric"><b>2,052</b><span>Clases compradas<br />mayo–septiembre 2026</span></div>
+        <div class="metric"><b>1 / 5 / 15</b><span>Productos regulares<br />identificados</span></div>
+        <div class="metric"><b>1 → 5</b><span>Movimiento buscado<br />de producto</span></div>
+      </div>
+      <div class="decision"><strong>Decisión recomendada: hacer del paquete de 5 el core de la campaña.</strong><p>La razón es que representa el salto comercial que queremos provocar: pasar de una compra unitaria a una compra con mayor continuidad.</p></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Reglas mínimas</h2>
+        <p class="caption">La claridad operativa hace que el beneficio se sienta exclusivo y evita excepciones en recepción.</p>
+      </div>
+      <div class="rules">
+        <div class="rule"><strong>Vigencia de compra:</strong> 13 al 17 de noviembre de 2026.</div>
+        <div class="rule"><strong>Beneficio:</strong> una clase adicional por cada paquete de 5 comprado.</div>
+        <div class="rule"><strong>Regalo:</strong> calcetas Fitform sujetas a existencias y tallas disponibles.</div>
+        <div class="rule"><strong>Acumulación:</strong> no acumulable con otras promociones o beneficios.</div>
+        <div class="rule"><strong>Redención:</strong> definir una fecha límite para usar la clase adicional.</div>
+        <div class="rule"><strong>Segmentación:</strong> mailing a usuarios activos y segmentos priorizados.</div>
+      </div>
+    </section>
+
+    <footer>Fitform · Noviembre en Movimiento · Propuesta interna · Base consultada: Kit de campaña y Fitform Rewards V2 · Corte de datos disponible: mayo–septiembre 2026</footer>
+  </main>
+</body>
+</html>
